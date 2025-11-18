@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Finalizar Compra</title>
+<link rel="stylesheet" href="2style.css">
+</head>
+
+<body>
+
+<h1 class="titulo">Finalizar Compra</h1>
+
+<div class="caixa">
+    <p><strong>Valor do Pedido:</strong> R$ <span id="valor"></span></p>
+    <p><strong>Taxa:</strong> R$ 2,00</p>
+    <hr>
+    <p><strong>Total:</strong> R$ <span id="total"></span></p>
+    <p><strong>Forma de pagamento:</strong> <select id="pagamento"><option value="PIX">Pix</option><option value="Cartão">Cartão</option></select></p>
+    <button onclick="finalizar()">Finalizar compra</button>
+    
+
+     
+</div> 
+
+
+
+<script>
+let valor = parseFloat(localStorage.getItem("compraValor"));
+document.getElementById("valor").innerText = valor.toFixed(2);
+
+let total = valor + 2;
+document.getElementById("total").innerText = total.toFixed(2);
+
+function finalizar() {
+    localStorage.removeItem("compraValor");
+    window.location.href = "menu.html";
+}
+</script>
+
+</body>
+</html>
